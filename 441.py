@@ -13,3 +13,7 @@ class Solution:
             else:
                 left = middle + 1
         return right  
+
+"""
+can do it O(1) if just solve for X(X+1)/2 = n and return floor of X.
+"""
