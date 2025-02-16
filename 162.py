@@ -1,3 +1,4 @@
+"""
 class Solution:
     def findPeakElement(self, nums: List[int]) -> int:
         out = 0
@@ -12,3 +13,18 @@ class Solution:
                 if nums[i-1]< nums[i] and nums[i] > nums[i+1]: 
                     return(max(out,i))
         return(out)
+"""
+
+## Binary search - works because no two adjacenet element sare same
+
+class Solution:
+    def findPeakElement(self, nums: List[int]) -> int:
+        n = len(nums)
+        left,right = 0,  n-1
+        while left < right:
+            middle = (left + right)//2
+            if nums[middle] > nums[middle+1]:
+                right = middle
+            else: 
+                left = middle + 1
+        return(left)
