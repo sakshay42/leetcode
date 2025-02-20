@@ -1,0 +1,14 @@
+class Solution(object):
+    def numJewelsInStones(self, jewels, stones):
+        """
+        :type jewels: str
+        :type stones: str
+        :rtype: int
+        """
+        counter = {}
+        out = 0
+        for i in stones:
+            counter[i] = counter.get(i,0)+1
+        for j in jewels:
+            if j in counter: out+= counter[j]
+        return out
