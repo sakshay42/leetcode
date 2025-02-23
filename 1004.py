@@ -47,9 +47,9 @@ class Solution:
         l=r=0    
         for r in range(len(nums)):
             if nums[r] == 0:
-                k-=1
-            if k<0:
-                if nums[l] == 0:
-                    k+=1
-                l+=1
+                k-=1 #every time you hit a zero reduce k by 1
+            if k<0: #if hits zero that means that you have k zeros (if you have k+i zeros)
+                if nums[l] == 0: #delete left number, if left number is 0 then you can add one more zero so k=1
+                    k+=1 
+                l+=1       #you have to keep moving left pointer
         return r-l+1
