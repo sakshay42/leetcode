@@ -22,3 +22,20 @@ class Solution:
                 out = max(out, current)
         
         return out
+
+
+### optimal
+
+class Solution:
+    def maxVowels(self, s: str, k: int) -> int:
+        vowels = set(['a', 'e', 'i', 'o', 'u'])
+        
+        count = sum(1 for i in range(k) if s[i] in vowels)
+        out =count
+        for i in range(len(s)-k):
+            if s[i+k] in vowels:
+                count +=1
+            if s[i] in vowels:
+                count -=1
+            out = max(out,count)
+        return out
